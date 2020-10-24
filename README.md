@@ -1,11 +1,11 @@
 # 50-30-20-Budget-Project
-Repository for the 50/30/20 Budget Project 
-Programmer: Arianna Gaskins
-Email Address: arianna.gaskins698@gmail.com
-Date: 20 October 2020
-Environment:  Microsoft Visual Studio Code
-Language: C++
-Description:
+- Repository for the 50/30/20 Budget Project 
+- Programmer: Arianna Gaskins
+- Email Address: arianna.gaskins698@gmail.com
+- Date: 20 October 2020
+- Environment:  Microsoft Visual Studio Code
+- Language: C++
+- Description:
 This program is meant to separate income into 50% for needs, 30% for wants, &
 20% for savings. It will store purchases and savings amounts that are entered 
 by the user. The information is saved in files which can also be viewed and edited 
