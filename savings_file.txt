@@ -1,0 +1,1 @@
+Savings contains 20% of income. The amount saved will be shown below:

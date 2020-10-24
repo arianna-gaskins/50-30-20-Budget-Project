@@ -1,0 +1,2 @@
+This file shows the wants-based purchases AKA frivolous purchases. 
+It will subtract from the amount dedicated for each wants amount logged:
