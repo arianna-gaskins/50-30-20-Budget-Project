@@ -1,23 +1,4 @@
-/*
-Programmer: Arianna Gaskins
-Email Address: arianna.gaskins698@gmail.com
-Date: 20 October 2020
-Environment:  Microsoft Visual Studio Express Edition 2017 C++
-Description:
-This program is meant to separate income into 50% for needs, 30% for wants, &
-20% for savings. It will store purchases and savings amounts that are entered 
-by the user. The information is saved in files which can also be viewed and edited 
-by the user. 
-'-----------------------------------------------------------------------------
-'   						HONOR CODE:
-'	I pledge that this program represents my own program code. I have received
-'	help from no one and I have given help to no one.
-'		OR
-'	I received help from NAME OR NO ONE in designing and debugging my program.
-'	I given help to NAME OR NO ONE in designing and debugging my program.
-'-----------------------------------------------------------------------------
- */
-
+//main.cpp
 #include <iostream>   // std input and output
 #include <fstream>    // input and output from files or disk
 #include <string>     // String Processing Functions
@@ -135,7 +116,7 @@ int main()
 }
 
 //initialize income
-BudgetClass::BudgetClass(double incomeValue, double billValue, double frivolityValue)
+/*BudgetClass::BudgetClass(double incomeValue, double billValue, double frivolityValue)
 	: income(incomeValue), bill(billValue), frivolity(frivolityValue)
 {
 	testValue();
@@ -309,4 +290,4 @@ void BudgetClass::appendFrivolity(ofstream& frivolityStreamOut, double frivolity
 		cout << "Appending complete!\n";
 		//append wants_purchases_files.txt with frivolity amount
 	}
-}
+}*/
