@@ -1,2 +1,0 @@
-This file shows the needs-based purchases AKA bills.
-It will subtract from the amount dedicated for each needs amount logged:

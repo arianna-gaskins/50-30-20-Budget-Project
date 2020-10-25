@@ -79,6 +79,14 @@ void BudgetClass::appendIncome(ofstream& incomeStreamOut, double incomeValue)
 	{
 		cout << "Opening income_file.txt for appending...\n";
 		incomeStreamOut.open("income_file.txt", ios::app);
+
+		//so we can know if the file opening fails
+		if (incomeStreamOut.fail())
+		{
+			cout << "Opening income_file.txt failed. \n";
+			exit(1);
+		}
+
 		incomeStreamOut << incomeValue << endl;
 		incomeStreamOut.close();
 		cout << "Appending complete!\n";
@@ -98,6 +106,14 @@ void BudgetClass::appendNeeds(ofstream& needsStreamOut, double needsValue)
 	{
 		cout << "Opening needs_file.txt for appending...\n";
 		needsStreamOut.open("needs_file.txt", ios::app);
+
+		//so we can know if the file opening fails
+		if (needsStreamOut.fail())
+		{
+			cout << "Opening needs_file.txt failed. \n";
+			exit(1);
+		}
+
 		needsStreamOut << needsValue << endl;
 		needsStreamOut.close();
 		cout << "Appending complete!\n";
@@ -117,6 +133,14 @@ void BudgetClass::appendWants(ofstream& wantsStreamOut, double wantsValue)
 	{
 		cout << "Opening wants_file.txt for appending...\n";
 		wantsStreamOut.open("wants_file.txt", ios::app);
+
+		//so we can know if the file opening fails
+		if (wantsStreamOut.fail())
+		{
+			cout << "Opening wants_file.txt failed. \n";
+			exit(1);
+		}
+
 		wantsStreamOut << wantsValue << endl;
 		wantsStreamOut.close();
 		cout << "Appending complete!\n";
@@ -136,6 +160,14 @@ void BudgetClass::appendSavings(ofstream& savingsStreamOut, double savingsValue)
 	{
 		cout << "Opening savings_file.txt for appending...\n";
 		savingsStreamOut.open("savings_file.txt", ios::app);
+
+		//so we can know if the file opening fails
+		if (savingsStreamOut.fail())
+		{
+			cout << "Opening savings_file.txt failed. \n";
+			exit(1);
+		}
+
 		savingsStreamOut << savingsValue << endl;
 		savingsStreamOut.close();
 		cout << "Appending complete!\n";
@@ -143,39 +175,55 @@ void BudgetClass::appendSavings(ofstream& savingsStreamOut, double savingsValue)
 	}
 }
 
-void BudgetClass::appendBills(ofstream& billsStreamOut, double billsValue)
+void BudgetClass::appendNeedsBills(ofstream& needsStreamOut, double billsValue, double needsValue)
 {
 	//sets to two decimal places because that how money works
-	billsStreamOut.setf(ios::fixed);
-	billsStreamOut.setf(ios::showpoint);
-	billsStreamOut.precision(2);
+	needsStreamOut.setf(ios::fixed);
+	needsStreamOut.setf(ios::showpoint);
+	needsStreamOut.precision(2);
 
 	//doesn't append if there's nothing to append
 	if (billsValue < 0)
 	{
 		cout << "Opening needs_purchases_file.txt for appending...\n";
-		billsStreamOut.open("needs_purchases_file.txt", ios::app);
-		billsStreamOut << billsValue << endl;
-		billsStreamOut.close();
+		needsStreamOut.open("needs_purchases_file.txt", ios::app);
+
+		//so we can know if the file opening fails
+		if (needsStreamOut.fail())
+		{
+			cout << "Opening needs_file.txt failed. \n";
+			exit(1);
+		}
+
+		needsStreamOut << billsValue + needsValue << endl;
+		needsStreamOut.close();
 		cout << "Appending complete!\n";
 		//append needs_purchase_file.txt with bills amount
 	}
 }
 
-void BudgetClass::appendFrivolity(ofstream& frivolityStreamOut, double frivolityValue)
+void BudgetClass::appendWantsFrivolity(ofstream& wantsStreamOut, double frivolityValue, double wantsValue)
 {
 	//sets to two decimal places because that how money works
-	frivolityStreamOut.setf(ios::fixed);
-	frivolityStreamOut.setf(ios::showpoint);
-	frivolityStreamOut.precision(2);
+	wantsStreamOut.setf(ios::fixed);
+	wantsStreamOut.setf(ios::showpoint);
+	wantsStreamOut.precision(2);
 
 	//doesn't append if there's nothing to append
 	if (frivolityValue < 0)
 	{
 		cout << "Opening wants_purchases_files.txt for appending...\n";
-		frivolityStreamOut.open("wants_purchases_files.txt", ios::app);
-		frivolityStreamOut << frivolityValue << endl;
-		frivolityStreamOut.close();
+		wantsStreamOut.open("wants_purchases_files.txt", ios::app);
+
+		//so we can know if the file opening fails
+		if (wantsStreamOut.fail())
+		{
+			cout << "Opening wants_file.txt failed. \n";
+			exit(1);
+		}
+
+		wantsStreamOut << frivolityValue + wantsValue << endl;
+		wantsStreamOut.close();
 		cout << "Appending complete!\n";
 		//append wants_purchases_files.txt with frivolity amount
 	}

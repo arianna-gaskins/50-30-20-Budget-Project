@@ -49,10 +49,10 @@ class BudgetClass
 		void appendSavings(ofstream& savingsStreamOut, double savingsValue);
 		//will append savings_file.txt
 
-		void appendBills(ofstream& billsStreamOut, double billsValue);
+		void appendNeedsBills(ofstream& needsStreamOut, double billsValue, double needsValue);
 		//will append needs_purchase_file.txt with bills
 
-		void appendFrivolity(ofstream& frivolityStreamOut, double frivolityValue);
+		void appendWantsFrivolity(ofstream& wantsStreamOut, double frivolityValue, double wantsValue);
 		//will append wants_purchase_file.txt with frivolous purchases
 
 		//void editOrView();
