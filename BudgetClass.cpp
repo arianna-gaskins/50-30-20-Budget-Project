@@ -87,7 +87,7 @@ void BudgetClass::appendIncome(ofstream& incomeStreamOut, double incomeValue)
 			exit(1);
 		}
 
-		incomeStreamOut << incomeValue << endl;
+		incomeStreamOut << "$" << incomeValue << endl;
 		incomeStreamOut.close();
 		cout << "Appending complete!\n";
 		//append income_file with userIncome then close
@@ -114,7 +114,7 @@ void BudgetClass::appendNeeds(ofstream& needsStreamOut, double needsValue)
 			exit(1);
 		}
 
-		needsStreamOut << needsValue << endl;
+		needsStreamOut << "$" << needsValue << endl;
 		needsStreamOut.close();
 		cout << "Appending complete!\n";
 		//append needs_file with needsAmount then close
@@ -141,7 +141,7 @@ void BudgetClass::appendWants(ofstream& wantsStreamOut, double wantsValue)
 			exit(1);
 		}
 
-		wantsStreamOut << wantsValue << endl;
+		wantsStreamOut << "$" << wantsValue << endl;
 		wantsStreamOut.close();
 		cout << "Appending complete!\n";
 		//append wants_file with wantsAmount then close
@@ -168,7 +168,7 @@ void BudgetClass::appendSavings(ofstream& savingsStreamOut, double savingsValue)
 			exit(1);
 		}
 
-		savingsStreamOut << savingsValue << endl;
+		savingsStreamOut << "$" << savingsValue << endl;
 		savingsStreamOut.close();
 		cout << "Appending complete!\n";
 		//append savings_file.txt with savingsAmount then close
@@ -195,7 +195,7 @@ void BudgetClass::appendNeedsBills(ofstream& needsStreamOut, double billsValue, 
 			exit(1);
 		}
 
-		needsStreamOut << billsValue + needsValue << endl;
+		needsStreamOut << "$" << billsValue + needsValue << endl;
 		needsStreamOut.close();
 		cout << "Appending complete!\n";
 		//append needs_purchase_file.txt with bills amount
@@ -222,7 +222,7 @@ void BudgetClass::appendWantsFrivolity(ofstream& wantsStreamOut, double frivolit
 			exit(1);
 		}
 
-		wantsStreamOut << frivolityValue + wantsValue << endl;
+		wantsStreamOut << "$" << frivolityValue + wantsValue << endl;
 		wantsStreamOut.close();
 		cout << "Appending complete!\n";
 		//append wants_purchases_files.txt with frivolity amount
