@@ -7,7 +7,7 @@ class BudgetClass
 {
 	public:
 
-		BudgetClass(double incomeValue, double billValue, double frivolityValue);
+		BudgetClass(double incomeValue, double billValue, double frivolityValue, double emergencyValue);
 		//initializes income and purchases
 
 		BudgetClass();
@@ -37,6 +37,9 @@ class BudgetClass
 		double getFrivolity(double frivolityValue);
 		//will return frivolity value
 
+		double getEmergency(double emergencyValue);
+		//will return emergency purchase value
+
 		void appendIncome(ofstream& incomeStreamOut, double incomeValue);
 		//will append income_file.txt
 
@@ -50,10 +53,13 @@ class BudgetClass
 		//will append savings_file.txt
 
 		void appendNeedsBills(ofstream& needsStreamOut, double billsValue, double needsValue);
-		//will append needs_purchase_file.txt with bills
+		//will append needs_file.txt with bills
 
 		void appendWantsFrivolity(ofstream& wantsStreamOut, double frivolityValue, double wantsValue);
-		//will append wants_purchase_file.txt with frivolous purchases
+		//will append wants_file.txt with frivolous purchases
+
+		void appendSavingsEmergency(ofstream& savingsStreamOut, double emergencyValue, double savingsValue);
+		//will append savings_file.txt with purchase
 
 		//void editOrView();
 		//will ask if user wants to edit or view file if nothing is entered
@@ -61,7 +67,7 @@ class BudgetClass
 
 	private:
 		
-		double income, needs, wants, savings, bill, frivolity;
+		double income, needs, wants, savings, bill, frivolity, emergency;
 		//values n shit
 
 		void testValue();

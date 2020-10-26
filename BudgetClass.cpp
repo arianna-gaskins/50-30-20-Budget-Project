@@ -5,8 +5,8 @@
 using namespace std;
 
 //initialize income
-BudgetClass::BudgetClass(double incomeValue, double billValue, double frivolityValue)
-	: income(incomeValue), bill(billValue), frivolity(frivolityValue)
+BudgetClass::BudgetClass(double incomeValue, double billValue, double frivolityValue, double emergencyValue)
+	: income(incomeValue), bill(billValue), frivolity(frivolityValue), emergency(emergencyValue)
 {
 	testValue();
 	//will check for nonnegative values
@@ -57,6 +57,14 @@ double BudgetClass::getFrivolity(double frivolityValue)
 	//makes frivolity negative so you don't have to lazy bitch
 
 	return(frivolity);
+}
+
+double BudgetClass::getEmergency(double emergencyValue)
+{
+	double emergency = -emergencyValue;
+	//makes emergency negative so you don't have to lazy bitch
+
+	return(emergency);
 }
 
 void BudgetClass::testValue()
@@ -226,5 +234,32 @@ void BudgetClass::appendWantsFrivolity(ofstream& wantsStreamOut, double frivolit
 		wantsStreamOut.close();
 		cout << "Appending complete!\n";
 		//append wants_purchases_files.txt with frivolity amount
+	}
+}
+
+void appendSavingsEmergency(ofstream& savingsStreamOut, double emergencyValue, double savingsValue)
+{
+		//sets to two decimal places because that's how money works
+	savingsStreamOut.setf(ios::fixed);
+	savingsStreamOut.setf(ios::showpoint);
+	savingsStreamOut.precision(2);
+
+	//doesn't append if there's nothing to append
+	if (savingsValue > 0)
+	{
+		cout << "Opening savings_file.txt for appending...\n";
+		savingsStreamOut.open("savings_file.txt", ios::app);
+
+		//so we can know if the file opening fails
+		if (savingsStreamOut.fail())
+		{
+			cout << "Opening savings_file.txt failed. \n";
+			exit(1);
+		}
+
+		savingsStreamOut << "$" << emergencyValue + savingsValue << endl;
+		savingsStreamOut.close();
+		cout << "Appending complete!\n";
+		//append savings_file.txt with savingsAmount then close
 	}
 }
