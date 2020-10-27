@@ -31,15 +31,17 @@ int main()
 
 	system("pause");
 
-	ofstream outIncome, outNeeds, outWants, outSavings, outBills, outFrivolity;
+	ofstream outIncome, outNeeds, outWants, outSavings, outBills, outFrivolity, outEmergency;
 
-	double userIncome, userBill, userFrivolity;
+	double userIncome, userBill, userFrivolity, userEmergency;
 	//declares income, bill, and frivolity for user input
 
-	string answer1, answer2;
-	string yes("y"), no("n"), bill("bill"), frivolity("frivolity");
+	//answer types listed
+	string answer1, answer2, answer3, answer4;
+	string yes("y"), no("n"), bill("bill"), frivolity("frivolity"), emergency("emergency"), 
+		edit("edit"), view("view");
 
-	BudgetClass input(userIncome, userBill, userFrivolity), inputD;
+	BudgetClass input(userIncome, userBill, userFrivolity, userEmergency), inputD;
 
 	//returns needs, wants, and savings values
 	//also returns bills and frivolous purchases
@@ -48,34 +50,21 @@ int main()
 	double savingsAmount = input.getSavings(userIncome);
 	double billAmount = input.getBills(userBill);
 	double frivolityAmount = input.getFrivolity(userFrivolity);
-
-	//establishes funtion pointer type
-	typedef void (*fn_ptr)(ofstream&, double);
-
-	//jumptable array for pointing to each function as needed
-	//going to change to switch statements
-	fn_ptr appendAppendix[6];
-	appendAppendix[0] = input.appendIncome;
-	appendAppendix[1] = input.appendNeeds;
-	appendAppendix[2] = input.appendWants;
-	appendAppendix[3] = input.appendSavings;
-	appendAppendix[4] = input.appendBills;
-	appendAppendix[5] = input.appendFrivolity;
+	double emergencyAmount = input.getEmergency(userEmergency);
 
 	cout << "Please enter this week's income: " << endl;
 	cin >> userIncome;
 
-	//append everything affected by the income and pause inbetween so it doesn't look scary 
-	appendAppendix[0](outIncome, userIncome);
+	input.appendIncome(outIncome, userIncome);
 	system("pause");
 
-	appendAppendix[1](outNeeds, needsAmount);
+	input.appendNeeds(outNeeds, needsAmount);
 	system("pause");
 
-	appendAppendix[2](outWants, wantsAmount);
+	input.appendWants(outWants, wantsAmount);
 	system("pause");
 
-	appendAppendix[3](outSavings, savingsAmount);
+	input.appendSavings(outSavings, savingsAmount);
 	system("pause");
 
 	cout << "Did you purchase anything that you'd like to log here? (y/n) \n";
@@ -83,35 +72,31 @@ int main()
 
 	if (answer1 == yes)
 	{
-		cout << "What kind of purchase was it? (bill/frivolity) /n";
+		cout << "What kind of purchase was it? (bill/frivolity/emergency) \n";
 		cin >> answer2;
 
-		if (answer2 == bill)
+		if(answer3 == bill)
 		{
-			//asks for user input for bill amount
-			cout << "Please enter bill amount below (*note positive numbers only): \n";
-			cin >> userBill;
-
-			//append bill
-			appendAppendix[4](outBills, billAmount);
-		}
-		else if (answer2 == frivolity)
+			input.appendNeedsBills(outNeeds, billAmount, needsAmount);
+			system("pause");
+		} 
+		else if(answer3 == frivolity)
 		{
-			//asks for user input for frivolous purchase amount
-			cout << "Please enter the frivolous purchase amount (*note positive numbers only): \n";
-			cin >> userFrivolity;
-
-			//append frivolity
-			appendAppendix[5](outFrivolity, frivolityAmount);
+			input.appendWantsFrivolity(outWants, frivolityAmount, wantsAmount);
+			system("pause");
 		}
-
+		else if (answer3 == emergency)
+		{
+			input.appendSavingsEmergency(outSavings, emergencyAmount, savingsAmount);
+			system("pause");
+		}
+		
 	}
-	else if (answer1 == no)
+
+	if (answer3 == no)
 	{
-		cout << "Good job! Save that money!" << endl;
+		cout << "Great!" << endl;
 	}
-
-
 
 	return 0;
 }

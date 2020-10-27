@@ -13,7 +13,7 @@ BudgetClass::BudgetClass(double incomeValue, double billValue, double frivolityV
 }
 
 BudgetClass::BudgetClass()
-	: income(0), bill(0), frivolity(0)
+	: income(0), bill(0), frivolity(0), emergency(0)
 {
 	testValue();
 	//will check for nonnegative values
@@ -193,8 +193,8 @@ void BudgetClass::appendNeedsBills(ofstream& needsStreamOut, double billsValue, 
 	//doesn't append if there's nothing to append
 	if (billsValue < 0)
 	{
-		cout << "Opening needs_purchases_file.txt for appending...\n";
-		needsStreamOut.open("needs_purchases_file.txt", ios::app);
+		cout << "Opening needs_file.txt for appending...\n";
+		needsStreamOut.open("needs_file.txt", ios::app);
 
 		//so we can know if the file opening fails
 		if (needsStreamOut.fail())
@@ -206,7 +206,7 @@ void BudgetClass::appendNeedsBills(ofstream& needsStreamOut, double billsValue, 
 		needsStreamOut << "$" << billsValue + needsValue << endl;
 		needsStreamOut.close();
 		cout << "Appending complete!\n";
-		//append needs_purchase_file.txt with bills amount
+		//append needs_file.txt with bills amount
 	}
 }
 
@@ -220,8 +220,8 @@ void BudgetClass::appendWantsFrivolity(ofstream& wantsStreamOut, double frivolit
 	//doesn't append if there's nothing to append
 	if (frivolityValue < 0)
 	{
-		cout << "Opening wants_purchases_files.txt for appending...\n";
-		wantsStreamOut.open("wants_purchases_files.txt", ios::app);
+		cout << "Opening wants_files.txt for appending...\n";
+		wantsStreamOut.open("wants_files.txt", ios::app);
 
 		//so we can know if the file opening fails
 		if (wantsStreamOut.fail())
