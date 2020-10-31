@@ -37,7 +37,7 @@ int main()
 	//declares income, bill, and frivolity for user input
 
 	//answer types listed
-	string answer1, answer2, answer3, answer4;
+	string answer1, answer2, answer3, answer4, answer5, answer6;
 	string yes("y"), no("n"), bill("bill"), frivolity("frivolity"), emergency("emergency"), 
 		edit("edit"), view("view");
 
@@ -75,17 +75,17 @@ int main()
 		cout << "What kind of purchase was it? (bill/frivolity/emergency) \n";
 		cin >> answer2;
 
-		if(answer3 == bill)
+		if(answer2 == bill)
 		{
 			input.appendNeedsBills(outNeeds, billAmount, needsAmount);
 			system("pause");
 		} 
-		else if(answer3 == frivolity)
+		else if(answer2 == frivolity)
 		{
 			input.appendWantsFrivolity(outWants, frivolityAmount, wantsAmount);
 			system("pause");
 		}
-		else if (answer3 == emergency)
+		else if (answer2 == emergency)
 		{
 			input.appendSavingsEmergency(outSavings, emergencyAmount, savingsAmount);
 			system("pause");
@@ -93,10 +93,67 @@ int main()
 		
 	}
 
-	if (answer3 == no)
+	if (answer2 == no)
 	{
 		cout << "Great!" << endl;
 	}
+
+do
+{
+	cout << "Are all operations complete? (y/n)\n";
+	cin >> answer3;
+
+	if(answer3 == yes)
+	{
+		cout << "Goodbye!\n";
+		exit(1);
+	}
+	else if (answer3 == no)
+	{
+		cout << "Would you like to view or edit files (edit/view)\n";
+		cin >> answer4;
+
+		if (answer4 == edit)
+		{
+			cout << "Which file would you like to edit?\n"
+				<< "1 = savings_file.txt, 2 = needs_file.txt, 3 = wants_file.txt" << endl;
+			cin >> answer5;
+
+			if (answer5 == "1")
+			{
+				//make a file opener for savings
+			}
+			else if (answer5 == "2")
+			{
+				//make a file opener for needs
+			}
+			else if (answer5 == "3")
+			{
+				//make a file opener for wants
+			}
+		}
+		else if (answer4 == view)
+		{
+			cout << "Which file would you like to view?\n"
+				<< "1 = savings_file.txt, 2 = needs_file.txt, 3 = wants_file.txt" << endl;
+			cin >> answer6;
+
+			if (answer6 == "1")
+			{
+				//make a file opener for savings
+			}
+			else if (answer6 == "2")
+			{
+				//make a file opener for needs
+			}
+			else if (answer6 == "3")
+			{
+				//make a file opener for wants
+			}
+		}
+	}
+	
+} while (answer3 == yes);
 
 	return 0;
 }
