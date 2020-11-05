@@ -61,8 +61,8 @@ class BudgetClass
 		void appendSavingsEmergency(ofstream& savingsStreamOut, double emergencyValue, double savingsValue);
 		//will append savings_file.txt with purchase
 
-		//void editOrView();
-		//will ask if user wants to edit or view file if nothing is entered
+		void editOrView(ofstream& myFile);
+		//will open file for editing or viewing for user
 
 
 	private:

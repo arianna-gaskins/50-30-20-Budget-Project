@@ -122,6 +122,8 @@ do
 			if (answer5 == "1")
 			{
 				//make a file opener for savings
+				cout << "Opening chosen file for editing/viewing...\n";
+				
 			}
 			else if (answer5 == "2")
 			{

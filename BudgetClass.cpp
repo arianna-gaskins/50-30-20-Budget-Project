@@ -263,3 +263,9 @@ void appendSavingsEmergency(ofstream& savingsStreamOut, double emergencyValue, d
 		//append savings_file.txt with savingsAmount then close
 	}
 }
+
+/*void editOrView(ofstream& myFile) 
+{
+	cout << "Opening chosen file for editing/viewing...\n";
+	myFile.open
+}*/
